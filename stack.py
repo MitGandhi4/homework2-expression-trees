@@ -17,3 +17,12 @@ class Stack:
             raise IndexError("Pop from empty stack")
 
         return self.items.pop()
+    def peek(self):
+        """
+        Return the top item of the stack without removing it.
+        Raises an error if the stack is empty.
+        """
+        if len(self.items) == 0:
+            raise IndexError("Peek from empty stack")
+
+        return self.items[-1]
