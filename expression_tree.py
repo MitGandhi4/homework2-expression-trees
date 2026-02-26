@@ -30,5 +30,20 @@ class TreeNode:
             if token.isdigit():
                 node = TreeNode(token)
                 stack.push(node)
+                
+                # If token is an operator
+            elif token in ["+", "-", "*", "/"]:
+
+                # Pop right and left operands
+                right = stack.pop()
+                left = stack.pop()
+
+                # Create new operator node
+                node = TreeNode(token)
+                node.left = left
+                node.right = right
+
+                # Push the new subtree back to stack
+                stack.push(node)
 
         return None
