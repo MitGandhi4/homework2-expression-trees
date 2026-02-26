@@ -72,3 +72,25 @@ def postorder(root):
             return []
 
         return postorder(root.left) + postorder(root.right) + [root.value]
+
+def inorder(root):
+    """
+    Return the inorder (infix) traversal of the tree as a list.
+    Add parentheses to preserve correct expression structure.
+    """
+
+    if root is None:
+        return []
+
+    # If it is a leaf node (operand), just return its value
+    if root.left is None and root.right is None:
+        return [root.value]
+
+    # Otherwise, it is an operator node
+    return (
+        ["("]
+        + inorder(root.left)
+        + [root.value]
+        + inorder(root.right)
+        + [")"]
+    )
