@@ -30,7 +30,7 @@ class TreeNode:
             if token.isdigit():
                 node = TreeNode(token)
                 stack.push(node)
-                
+
                 # If token is an operator
             elif token in ["+", "-", "*", "/"]:
 
@@ -46,4 +46,19 @@ class TreeNode:
                 # Push the new subtree back to stack
                 stack.push(node)
 
-        return None
+        # After processing all tokens,
+        # there should be exactly one node in the stack
+        if stack.size() != 1:
+            raise ValueError("Malformed postfix expression")
+
+        return stack.pop()
+
+    def preorder(root):
+        """
+        Return the preorder (prefix) traversal of the tree as a list.
+        """
+
+        if root is None:
+            return []
+
+        return [root.value] + preorder(root.left) + preorder(root.right)
