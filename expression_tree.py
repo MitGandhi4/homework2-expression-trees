@@ -24,6 +24,11 @@ class TreeNode:
 
         stack = Stack()
 
-        # We will add logic here step by step
+        for token in postfix_tokens:
+
+            # If token is a number (operand)
+            if token.isdigit():
+                node = TreeNode(token)
+                stack.push(node)
 
         return None
