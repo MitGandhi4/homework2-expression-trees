@@ -26,3 +26,15 @@ class Stack:
             raise IndexError("Peek from empty stack")
 
         return self.items[-1]
+
+    def is_empty(self):
+        """
+        Return True if the stack is empty, otherwise False.
+        """
+        return len(self.items) == 0
+
+    def size(self):
+        """
+        Return the number of elements in the stack.
+        """
+        return len(self.items)
