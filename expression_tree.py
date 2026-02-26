@@ -12,7 +12,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
-    def build_expression_tree(postfix_tokens):
+def build_expression_tree(postfix_tokens):
         """
         Build and return the root of an expression tree
         from a postfix expression (list of tokens).
@@ -53,7 +53,7 @@ class TreeNode:
 
         return stack.pop()
 
-    def preorder(root):
+def preorder(root):
         """
         Return the preorder (prefix) traversal of the tree as a list.
         """
@@ -62,3 +62,13 @@ class TreeNode:
             return []
 
         return [root.value] + preorder(root.left) + preorder(root.right)
+
+def postorder(root):
+        """
+        Return the postorder (postfix) traversal of the tree as a list.
+        """
+
+        if root is None:
+            return []
+
+        return postorder(root.left) + postorder(root.right) + [root.value]
